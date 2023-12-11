@@ -1,0 +1,3 @@
+export const THJMENUITEMS = [
+    { value: "Tell me all about THJ", label: "THJ Rundown", customPrompt: "You will create a comprehensive overview of The Honey Jar project in the Berachain ecosystem. Included in the rundown: 1. Identify the uniqueness of Berachain. 2. Breakdown the sub-projects of The Honey Jar. 3. Tell the user interesting facts about how The Honey Jar will help Berachain adoption. Be organized and use markdown format. Each section should be detailed but not too long." },
+];
