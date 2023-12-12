@@ -5,7 +5,7 @@ export async function getKv(context, key) {
         const response = await fetch(workerURL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ method: "getStates", walletId: key }),
+            body: JSON.stringify({ method: "getStates", walletAddress: key }),
         });
 
         if (response.ok) {
@@ -33,7 +33,7 @@ export async function storeKv(context, key, value) {
         const response = await fetch(workerURL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ method: "storeStates", walletId: key, states: value }),
+            body: JSON.stringify({ method: "storeStates", walletAddress: key, states: value }),
         });
 
         if (!response.ok) {

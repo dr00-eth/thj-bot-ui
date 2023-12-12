@@ -37,7 +37,7 @@ import {
 import { fetchConversationList } from "./conversation-utils/fetchConversationList";
 import { getKv } from "./kv.utils";
 import { updateConversation } from "./conversation-utils/updateConversation";
-import { sendMessage, getWalletProfile } from './utils';
+import { sendMessage } from './utils';
 
 class CustomRenderer extends Renderer {
   link(href, title, text) {
@@ -60,7 +60,7 @@ class App extends Component {
       deletedMessages: this.messageManager.deletedMsgs,
       connection_id: '',
       context_id: 0,
-      walletAddress: '',
+      walletAddress: 'testing-purposes',
       privateMode: searchParams.get('privateMode') ?? false,
       debug: searchParams.get('debug') ?? false,
       gptModel: searchParams.get('model') || 'gpt-4',
@@ -83,7 +83,7 @@ class App extends Component {
     this.alertTimeout = null;
     this.updateInterval = null;
     this.intercom = null;
-    this.workerUrl = 'https://paisleystate.thegenie.workers.dev/'
+    this.workerUrl = 'https://thjstate.thegenie.workers.dev/'
     //this.apiServerUrl = 'https://SITE.ondigitalocean.app'; //dev
     //this.apiServerUrl = 'https://SITE.ondigitalocean.app'; //prod
     this.apiServerUrl = 'http://127.0.0.1:8008';
@@ -127,7 +127,7 @@ class App extends Component {
             }
             if (this.state.walletAddress) {
               showLoading(this);
-              await getWalletProfile(this);
+              //await getWalletProfile(this);
               hideLoading(this);
               const states = await getKv(this, this.state.walletAddress); // eslint-disable-line no-unused-vars
               const conversationsList = await fetchConversationList(this);
@@ -240,15 +240,6 @@ class App extends Component {
       conversationsList,
       currentConversation
     } = this.state;
-
-    if (!this.state.privateMode) {
-      // Render only the deprecation notice if privateMode is false
-      return (
-        <div className="App">
-          {/* The deprecation notice will be shown here */}
-        </div>
-      );
-    }
 
     const swapVibeSection = (
       <div className={`swap-vibe-section ${isSwapVibeCollapsed ? 'collapsed' : ''}`}>
@@ -397,7 +388,7 @@ class App extends Component {
                 onSubmit={(e) => {
                   e.preventDefault();
                   showLoading(this);
-                  getWalletProfile(this, e);
+                  //getWalletProfile(this, e);
                   hideLoading(this);
                 }}>
                 {isWalletConnectDisabled === false && (

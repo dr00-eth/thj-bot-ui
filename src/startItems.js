@@ -1,9 +1,4 @@
-import Autosuggest from 'react-autosuggest';
-import { getUserAreas } from './utils';
-import { showLoading, hideLoading } from './helpers';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSync } from "@fortawesome/free-solid-svg-icons";
-import { onSuggestionsClearRequested, onSuggestionsFetchRequested, getSuggestionValue, renderSuggestion, autoSuggestOnChange } from './utils'
+
 const startOptions = [
   { value: 0, title: 'THJ Focus', body: 'Create general content about The Honey Jar' }
 ];

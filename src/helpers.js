@@ -110,7 +110,7 @@ export async function resetChat(context, event) {
             })
             .catch(error => console.error(error));
         if (context.state.context_id !== 4) {
-            await getWalletProfile(context);
+            //await getWalletProfile(context);
         }
         hideLoading(context);
     } catch (error) {
@@ -156,7 +156,7 @@ export async function changeContext(context, event) {
             }
             if (newContextId !== 4) {
                 showLoading(context);
-                await getWalletProfile(context);
+                //await getWalletProfile(context);
                 hideLoading(context);
             }
             if (newContextId === 2 || newContextId === 3 || newContextId === 4) {
@@ -303,7 +303,7 @@ export function createButtons(context, menuItems) {
     };
 
     const handleButtonClick = async (context, option) => {
-        const { context_id, listings, areas, incomingChatInProgress, userMessage } = context.state;
+        const { incomingChatInProgress, userMessage } = context.state;
         if (isInvalidSelection(context)) {
             
             const warningTitle = 'Quick Actions';

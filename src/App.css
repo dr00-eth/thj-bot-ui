@@ -6,7 +6,7 @@
   --accent-color: #FFEA70;
   --text-color: #000000;
   --shadow-color: rgba(0, 0, 0, 0.25);
-  --scrollbar-thumb-color: #333;
+  --scrollbar-thumb-color: #CCB800;
 }
 
 
@@ -44,7 +44,8 @@ body.swal2-shown>[aria-hidden="true"] {
 }
 
 .sidebar {
-  background: linear-gradient(195deg, rgb(50, 58, 84), rgb(26, 32, 53));
+  /* background: linear-gradient(195deg, rgb(50, 58, 84), rgb(26, 32, 53)); */
+  background: linear-gradient(195deg, #3E2C1B, #6E4C1F);
   width: 350px;
   display: flex;
   flex-direction: column;
@@ -84,7 +85,7 @@ hr {
   margin: 1rem 0px;
   border-bottom: none;
   opacity: 0.25;
-  background-image: linear-gradient(to right, rgba(52, 71, 103, 0), rgb(255, 255, 255), rgba(52, 71, 103, 0)) !important;
+  background-image: linear-gradient(to right, #FFEA70, #FFD700, #FFEA70) !important;
 }
 
 .sidebar-top {
@@ -154,8 +155,8 @@ img.logo {
 
 .box-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
   gap: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -205,15 +206,15 @@ img.logo {
   padding: 1rem;
   border-radius: 10px;
   box-sizing: border-box;
-  background: linear-gradient(195deg, rgb(116, 123, 138), rgb(73, 83, 97));
-  color: white;
+  background: linear-gradient(195deg, #504339, #3E2C1B);
+  color: var(--accent-color);
   box-shadow: rgb(0 0 0 / 25%) 0rem 1.25rem 1.6875rem 0rem;
   transition: box-shadow 1s ease-in-out;
   position: relative;
 }
 
 .box.active {
-  box-shadow: rgb(67 160 71 / 50%) 0rem 1.25rem 1.6875rem 0rem;
+  box-shadow: #3E2C1B80 0rem 1.25rem 1.6875rem 0rem;
 }
 
 .box-content {
@@ -232,28 +233,20 @@ img.logo {
 
 .box button {
   align-self: center;
-  background: linear-gradient(195deg, rgb(102, 187, 106), rgb(67, 160, 71));
+  background: linear-gradient(195deg, #6E4C1F, #5A3C18);
 }
 
 .active-banner {
   text-align: center;
   align-self: center;
   position: absolute;
-  /* Add this line */
   bottom: 0;
-  /* Add this line */
   left: 0;
-  /* Add this line */
   right: 0;
-  /* Add this line */
   padding: 0.5rem 0;
-  /* Add this line for some padding */
-  background-color: rgb(67, 160, 71);
-  /* Add this line for the green background */
+  background-color: #6E4C1F;
   border-bottom-left-radius: 10px;
-  /* Add this line to match the box border-radius */
   border-bottom-right-radius: 10px;
-  /* Add this line to match the box border-radius */
 }
 
 .main-content.sidebar-collapsed {
@@ -297,7 +290,6 @@ header {
   width: 100%;
   box-sizing: border-box;
 }
-
 
 .Content-dropdown {
   background-color: transparent;
@@ -377,7 +369,6 @@ header {
   margin-bottom: 1rem;
   /* Add margin to separate the image from the h2 */
 }
-
 
 .Content-dropdown:focus {
   border-color: var(--secondary-color);
@@ -551,7 +542,7 @@ header {
 }
 
 .heart-icon.active {
-  color: red;
+  color: #CCB800;
   transition: color 2.5s ease-in-out;
 }
 
@@ -613,7 +604,12 @@ header {
 }
 
 .menu-buttons button {
+  color: var(--text-color);
+}
+
+.menu-buttons button:hover {
   color: var(--accent-color);
+  background-color: var(--accent-color);
 }
 
 
@@ -655,7 +651,8 @@ textarea {
   border: 0;
   border-radius: 5px;
   /* background-color: var(--primary-color); */
-  background: linear-gradient(195deg, rgb(73, 163, 241), rgb(26, 115, 232));
+  /* background: linear-gradient(195deg, rgb(73, 163, 241), rgb(26, 115, 232)); */
+  background: linear-gradient(195deg, #D1B000, #FFD700);
   color: var(--text-color);
   box-shadow: rgb(0 0 0 / 25%) 0rem 1.25rem 1.6875rem 0rem;
   margin-right: 10px;
@@ -709,12 +706,12 @@ button {
 }
 
 #chat-input .button-group button {
-  background: linear-gradient(195deg, rgb(102, 187, 106), rgb(67, 160, 71));
+  background: linear-gradient(195deg, #D1B000, #FFD700); 
 }
 
 #chat-input .button-group button:hover {
-  background: linear-gradient(160deg, rgb(102, 187, 106), rgb(67, 160, 71));
-  transition: background 2s ease-in;
+  background: #FFEA70;
+  transition: background 0.3s ease-in-out;
 }
 
 .chat-area {
@@ -763,51 +760,7 @@ button:focus {
   color: rgba(255, 255, 255, 1);
 }
 
-.listingSelectBox,
-.areaSelectBox {
-  font-size: 1rem;
-  display:
-    inline-block;
-  font-family: "Roboto", sans-serif;
-}
 
-.addressSearchBox li {
-  list-style-type: none;
-  color: white;
-  text-align: left;
-  margin-bottom: 0.5rem;
-  background-color: var(--primary-color);
-  padding: 0.5rem;
-  cursor: pointer;
-  width: 86%;
-  border-radius: 10px;
-}
-
-.addressSearchBox ul {
-  padding-inline-start: 20px;
-}
-
-.addressSearchBox select {
-  margin-left: 2rem;
-  width: 90%;
-}
-
-.react-autosuggest__container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-bottom: 1rem;
-  position: relative;
-}
-
-div#react-autowhatever-1 {
-  position: absolute;
-  top: 40px;
-  z-index: 999;
-  left: -10px;
-  background: linear-gradient(195deg, rgb(73, 163, 241), rgb(26, 115, 232));
-  border-radius: 10px;
-}
 
 /* For tablet devices (between 768px and 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -1012,7 +965,7 @@ div#react-autowhatever-1 {
 }
 
 .swap-vibe-toggle {
-  background-color: #007bff;
+  background-color: #6E4C1F;
   color: #fff;
   border: none;
   padding: 8px 16px;
