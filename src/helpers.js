@@ -202,11 +202,19 @@ async function getEnhancedPrompt(text) {
     try {
         const stopSequence = 'END_OF_IMPROVED_TEXT';
         const prompt = `We have the following input text in English: "${text}". Please provide a more informative and clear version of this text, which will help a GPT model better understand the user's desired action.\n2. Rewrite the main idea in a clear and informative manner.\n3. Make sure the new text is in English and easy to understand but more clear than the input text.\n\nImproved text: ${stopSequence}`;
+
+        // Access the API key from an environment variable
+        const apiKey = process.env.REACT_APP_OPENAI_KEY;
+        if (!apiKey) {
+            throw new Error('API key is not set in environment variables');
+        }
+
         const requestOptions = {
             method: 'POST',
-            headers: { Authorization: 'Bearer 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', 'Content-Type': 'application/json' },
+            headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' }, //EXISTING KEY DELETED
             body: JSON.stringify({ model: 'text-davinci-003', prompt: prompt, max_tokens: 75, temperature: 1, stop: [stopSequence] }),
         };
+
         const response = await fetch(`https://api.openai.com/v1/completions`, requestOptions);
         const enhancedPrompt = await response.json();
         if (!enhancedPrompt.choices || !enhancedPrompt.choices.length) {
@@ -220,6 +228,7 @@ async function getEnhancedPrompt(text) {
         return text;
     }
 }
+
 
 export async function handleEnhancePromptClick(context, event) {
     event.preventDefault();
