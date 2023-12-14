@@ -63,7 +63,7 @@ class App extends Component {
       walletAddress: 'testing-purposes',
       privateMode: searchParams.get('privateMode') ?? false,
       debug: searchParams.get('debug') ?? false,
-      gptModel: searchParams.get('model') || 'gpt-4',
+      gptModel: searchParams.get('model') || 'gpt-4-1106-preview',
       isLoading: false,
       isWaitingForMessages: false,
       showCopyNotification: {},

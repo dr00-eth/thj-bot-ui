@@ -91,7 +91,7 @@ export async function sendMessage(context) {
         await fetch(`${context.apiServerUrl}/api/gettokencount`, tokenChkReq)
             .then(async response => await response.json())
             .then(async (data) => {
-                if (data.tokencounts > 3000) {
+                if (data.tokencounts > 30000) {
                     await context.messageManager.checkThresholdAndMove(context, data.tokencounts);
                     updateConversation(context);
                     await context.setStateAsync({ messagesTokenCount: data.tokencounts });
